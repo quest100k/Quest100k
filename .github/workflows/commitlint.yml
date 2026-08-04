@@ -18,7 +18,7 @@ jobs:
     # than the job so the job still reports success — a required status check
     # that reports "skipped" can leave a PR unmergeable.
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # commitlint needs the full range between base and head.
           fetch-depth: 0
