@@ -1,12 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
    No theme colors live in this file. app/layout.tsx emits every --token from
    lib/themes.ts onto <html>, so a new theme needs no CSS. The rules below are
    structural and read those variables.
    --------------------------------------------------------------------------- */
+
+/* Tailwind 4 reads its theme from CSS, which replaces tailwind.config.ts.
+   These only forward the variables layout.tsx already emits, so that
+   components can say text-accent and never name a color. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-border: var(--border);
+}
 
 html,
 body {
