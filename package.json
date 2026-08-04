@@ -2,6 +2,7 @@
   "name": "quest100k",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@10.33.0",
   "description": "Retro pixel-game HUD progress tracker for the solo path to $100k MRR.",
   "scripts": {
     "dev": "next dev -p 1337",
