@@ -1,0 +1,32 @@
+{
+  "name": "quest100k",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Retro pixel-game HUD progress tracker for the solo path to $100k MRR.",
+  "scripts": {
+    "dev": "next dev -p 1337",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky || true",
+    "commitlint": "commitlint --edit"
+  },
+  "dependencies": {
+    "@vercel/og": "^0.6.5",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@types/node": "^22.10.7",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
+    "husky": "^9.1.7",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}

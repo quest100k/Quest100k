@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   No theme colors live in this file. app/layout.tsx emits every --token from
+   lib/themes.ts onto <html>, so a new theme needs no CSS. The rules below are
+   structural and read those variables.
+   --------------------------------------------------------------------------- */
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: var(--font-quest), monospace;
+  /* Pixel faces are huge per glyph; --font-scale shrinks them to match. */
+  font-size: calc(1rem * var(--font-scale, 1));
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+.quest-panel {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  border-width: var(--panel-border-width);
+  border-style: var(--panel-border-style);
+  border-color: var(--border);
+  border-radius: var(--panel-radius);
+}
+
+@media (min-width: 640px) {
+  .quest-panel {
+    padding: 2rem;
+  }
+}
+
+/* Item-slot corners. Themes opt in via the `corners` token. */
+.quest-corner {
+  display: var(--corner-display);
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+}
+
+.quest-glow {
+  text-shadow: var(--text-glow);
+}
+
+.quest-xp-cell {
+  border-radius: var(--xp-radius);
+}
+
+/* The `continuous` xpStyle collapses the gaps into one thin pill. Same markup,
+   no layout shift — only the track's own box changes. */
+[data-xp-style="continuous"] .quest-xp-track {
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: var(--accent-muted);
+  border-radius: var(--xp-radius);
+  overflow: hidden;
+  height: 10px;
+}
+
+[data-xp-style="continuous"] .quest-xp-cell {
+  border-radius: 0;
+}
+
+/* Digital rain: decorative, sits behind the card, deliberately dim.
+   Themes opt in via the `backdrop` token. */
+.matrix-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.22;
+}
+
+.matrix-rain-column {
+  position: absolute;
+  top: -140%;
+  color: var(--accent);
+  font-size: 14px;
+  line-height: 1.15;
+  white-space: pre;
+  animation-name: matrix-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes matrix-fall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(240vh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-rain-column {
+    animation: none;
+    top: 0;
+  }
+}

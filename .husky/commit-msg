@@ -1,0 +1,7 @@
+# Call the local binary directly: works with npm, pnpm, yarn and bun, and does
+# not depend on npx. If deps aren't installed yet, CI still enforces the rules.
+if [ -x ./node_modules/.bin/commitlint ]; then
+  ./node_modules/.bin/commitlint --edit "$1"
+else
+  echo "commitlint not installed - skipping. CI enforces this on every PR."
+fi
