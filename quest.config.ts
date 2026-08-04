@@ -16,7 +16,7 @@ const config = {
   handle: "@quest100k",
   startedAt: "2026-08-04",
   mrr: 0,
-  theme: "matrix",
+  theme: "pixelQuest",
   milestones: [
     { level: 1, mrr: 1, title: "first blood" },
     { level: 10, mrr: 500, title: "ramen mode" },
