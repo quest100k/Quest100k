@@ -12,7 +12,7 @@ Edit `mrr` (and `status`, if you need it) in `quest.config.ts`, commit, push. Ve
 import type { QuestConfig } from "@/lib/quest-types";
 
 const config = {
-  name: "Mike",
+  name: "Player One",
   handle: "@quest100k",
   startedAt: "2026-08-04",   // day zero, used for "days in"
   mrr: 0,                    // <- the only number you normally touch

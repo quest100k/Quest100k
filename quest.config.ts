@@ -12,7 +12,7 @@ import type { QuestConfig } from "@/lib/quest-types";
  * shipping broken.
  */
 const config = {
-  name: "John Doe",
+  name: "Player One",
   handle: "@quest100k",
   startedAt: "2026-08-04",
   mrr: 0,

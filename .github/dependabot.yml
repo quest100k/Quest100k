@@ -1,0 +1,25 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    # Conventional Commits are enforced on every PR title, and Dependabot
+    # writes its own — so it has to speak the same convention.
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      # One PR for the patch/minor noise, individual PRs for majors so a
+      # breaking Next.js or React bump gets reviewed on its own.
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: chore
+      include: scope

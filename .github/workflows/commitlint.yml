@@ -11,6 +11,10 @@ jobs:
   lint:
     name: commits and pr title
     runs-on: ubuntu-latest
+    # Dependabot writes conventional titles already (see dependabot.yml), but a
+    # long package name can push the header past 72 chars. Not worth a manual
+    # edit on every dependency bump.
+    if: github.actor != 'dependabot[bot]'
 
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +26,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
